@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pasos para crear un Vehículo controlado por Smartphone</title>
+    <style>
+*{
+    padding: 5px;
+    margin: 5px;
+}
+  
+.container{
+    background-color: rgba(244, 255, 40, 0.386);
+    width: 880px;
+    margin-top: 0;
+    margin-right: auto;
+    margin-bottom: 0;
+    margin-left: auto;
+    border: 8px solid rgb(20, 20, 20);
+    text-align: center;
+border: 7px solid rgba(114, 250, 243, 0.717);
+border-radius: 20px;
+
+}
+.header {
+color: rgba(157, 19, 51, 0.788);
+font-family: 'Britannic Bold';
+}
+.no-center {
+      text-align: justify; 
+    }
+
+p, li {
+color: rgb(0, 0, 0);
+font-family: Arial ;
+font-size: 20px;
+}
+.img {
+text-align: center;
+
+}
+.accordion {
+    margin: 10px;
+    background-color:  #00ff951a;
+    cursor: pointer;
+    padding: 18px;
+    width: auto;
+    text-align: center;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+    border-radius: 6px;
+    border-bottom: 6px;
+    font-size: 16px;
+    font-family: 'Arial Black';
+   
+}
+.active, .accordion:hover {
+    
+    background-color: #85f7279e;
+}
+    </style>
+    <body>
+        <div class="container">
+        <h1><div class="header">PASOS PARA CREAR UN VEHÍCULO CONTROLADO POR SMARTPHONE</div></h1>
+        <div class="no-center">
+        <ul>
+        <li>Paso 1: la ruedita tipo balín lo vamos a colocar en la parte de enfrente de nuestra tabla con
+             ayuda de los tornillos por abajo, tiene que quedar  alineado justo al centro </li>
+          <div class="img" ><img src="imagen/conexión ruedita tipo balín.JPG"width="200" height="100"></div>
+
+          <li>Paso 2: en la parte de atrás  de nuestro prototipo vamos a instalar los motores tienen cableado solamente por un lado entonces vamos 
+            a tomar como referencia el cableado y lo que vamos a  instalar el motor con los cables apuntando hacia afuera.</li>
+         <div class="img" ><img src="imagen/instalar los motores.JPG"width="200" height="100"></div>
+
+         <li>Paso 3: colocamos las dos ruedas.  </li>
+         <div class="img" ><img src="imagen/conexión llantas.JPG"width="200" height="100"></div>
+
+         <li>Paso 4:pinchamos en 5 voltios el arduino y llevamos en la otra punta del cable  al positivo del protoboard. 
+            Repetimos el proceso pinchamos en GND del arduino y llevamos el otro extremo a la línea horizontal de negativo   </li>
+         <div class="img" ><img src="imagen/conexión alimentar al protoboard.JPG"width="200" height="100"></div>
+
+         <li>Paso 5: : Con ayuda de 2 cables vamos a realizar un puente desde donde esta los cables (-,+) que esta alimenta
+             el arduino uno y lo vamos a llevar al otro extremo para que la fila del otro extremos   (-,+) este alimentado </li>
+         <div class="img" ><img src="imagen/conexión puente.JPG"width="200" height="100"></div>
+
+         <li>Paso 6:conectemos el sensor de ultrasonidos en la fila “a”  </li>
+         <div class="img" ><img src="imagen/instalar sensor de ultrasonidos.JPG"width="200" height="100"></div>
+
+         <li>Paso 7: Por la parte de atrás del sensor vamos a colocar un cable (NEGRO)  en el pin  GEN y lo vamos a llevar al
+             negativo del protoboard. Conectaremos  atrás del sensor en ECHO tenemos que llevar al pin digital 6  del arduino (BLANCO). 
+             El pin TRIG este pin lo que va a hacer es mandarle al sensor a que emita un sonido también necesitamos conectarlo a un pin digital del arduino al 5 (VERDE). 
+             Último necesitamos conectar el pin VCC a la línea horizontal positiva (ROJO) </li>
+         <div class="img" ><img src="imagen/conexión sensor de ultrasonidos.JPG"width="200" height="200"></div>
+
+         <li>Paso 8: prosigamos con él zumbador pasivo tenemos dos patas entonces si ponemos la pata negativa en el 16, deberemos 
+            conectar debajo  de esta pata con un cable (ROJO)y lo llevamos al pin negativa del protoboard , repetimos el proceso 
+            debajo de  la pata corta(-)  llevamos el cable (GRIS) al pin 9 del Arduino uno  </li>
+         <div class="img" ><img src="imagen/conexión sumbador.JPG"width="200" height="200"></div>
+
+         <li>Paso 9: colocamos la resistencia en la fila que está todos los cables del zumbador vamos a colocar en el agujero 21 -26 </li>
+         <div class="img" ><img src="imagen/conexión resistencia.JPG"width="200" height="100"></div>
+
+         <li>Paso 10:colocamos el  puente H L293D en el medio del proroboard que sería en la fila “e” y en la “f”.
+             Vamos a realizar la conexión de los dos lados tanto del derecho como el de la izquierda : los  pines
+            1 vamos a llevar a la fila (+), los  pines 2 vamos a llevar al arduino al pin 12 y 10, los  pines 3 
+            vamos a dejar solo poniendo el cable para luego conectar al motor al igual que los pines 6, el pin 4 
+            y 5 vamos a llevar a la fila (-), los pines 7 van ir colocados en el arduino en el pin 13 y 11 y por 
+              último los  pines  8 vamos a colocar  a la fila  (+),  </li>
+         <div class="img" ><img src="imagen/conexión del  puente H L293D.JPG"width="300" height="200"></div>
+
+         <li>Paso 11: : los pines que hemos dejado 3 y 6 pavos a colocar al motor dada uno  </li>
+         <div class="img" ><img src="imagen/conexión motores.JPG"width="200" height="200"></div>
+
+         <li>Paso 12: Conectamos el Bluetooth HC-06 con 4 cables los mismos que serán llevados al protoboard: El  VCC al positiv,
+             GND al negativo  y al arduino uno: Vamos a llevar el pin TXD al RX ⭠ 0, RXD al TX →1. </li>
+         <div class="img" ><img src="imagen/Conexión Bluetooth HC-06.JPG"width="200" height="200"></div>
+
+         <li>Paso 13:  ahora vamos a programar nuestra placa de arduino  en el programa ArduinoIDE 1.8.19  </li>
+         <div class="img" ><img src="imagen/PROGRAMA DE ARDUINO.JPG"width="250" height="200"></div>
+         <p><button class="accordion"><a href="PROGRAMACIÓN ARDUINO.html">PROGRAMACIÓN ARDUINO IDE 1.8.19</a></button></p>
+        
+           
+         <li>Paso 14: ahora vamos a crear un prototipo (controles) con las funciones que va cumplir  nuestro vehículo  </li>
+            <div class="img" ><img src="imagen/DISENO EN APP INVENTOR.JPG"width="250" height="200"></div>
+            <p><button class="accordion"><a href="PROTOTIPO EN APP INVENTOR.html">PROTOTIPO EN APP INVENTOR  </button></p>
+        
+        </ul>
+    </div>
+    <button class="accordion"> <a href="index.html">REGRESAR</button>
+</div>
+    </body>
+</head>
+</html>

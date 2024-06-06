@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto: Vehículo con Sensor de Distancia controlado por Smartphone</title>
+    <link rel="stylesheet" href="style.css"type="text/css">
+</head>
+<body>
+
+    <div class="container">                                                                                                                                   
+        <div class="header"><img src="imagen/diseño proyecto.jpg"></div>
+        <div class="section">
+            <div class="info">
+                <h3>OBJETIVO GENERAL:</h3>
+                <p>El objetivo del proyecto es crear un vehículo controlado por Smartphone 
+                    que utiliza un sensor de distancia ultrasónico para detectar obstáculos y un 
+                    zumbador para emitir alertas auditivas cuando el vehículo se acerque demasiado 
+                    a un objeto. El control se realizará a través de una conexión Bluetooth, lo que 
+                    permitirá a una persona controlar los movimientos del carro desde su Smartphone.</p>
+        </div>
+        </div>
+            
+        <div class="siderbar">
+        <button class="accordion"><div class="ar1"><a href="OBJETIVOS ESPECÍFICOS.html">OBJETIVOS ESPECÍFICOS</div></button>
+        <button class="accordion"><div class="ar1"><a href="materiales.html">MATERIAL</div></button>
+       <button class="accordion"><div class="ar1"><a href="PASOS.html">PROCEDIMIENTO</div></button>
+        <button class="accordion"><div class="ar1"><a href="APLICACIÓN DEL PROYECTO.html">APLICACIÓN DEL PROYECTO</div></button>
+        <button class="accordion"> <div class="ar1"> <a href="CONCLUSIÓN.html">CONCLUSIÓN</a></div></button>
+            <botón class="acordeón">
+               
+        </div>
+        <video  width="510" height="275"controls><source src="imagen/función del Vehículo.mp4" type="video/mp4" class="video"> </video>
+        
+        <div class="content"> 
+            <div class="inf">
+        <h3>DESCRIPCIÓN:
+        <p> El vehículo está construido sobre una tabla que consta de dos llantas motorizadas en la parte trasera,
+             una rueda tipo Berlín en la parte delantera para proporcionar estabilidad, y un Arduino Uno como unidad
+              de control principal. Los motores están conectados al Arduino Uno a través de un puente H, permitiendo
+               el control independiente de cada llanta para lograr movimientos precisos y direccionales.</p>
+        <p>El sensor de ultrasonidos está montado en la parte frontal del vehículo y conectado al Arduino Uno.
+             Este sensor utiliza ondas ultrasónicas para medir la distancia entre el vehículo y los objetos circundantes.
+              Cuando detecta un obstáculo a una distancia de 5 cm o menos, envía una señal al Arduino.</p>
+        <p>El Arduino Uno está también conectado a un módulo Bluetooth HC-06, que permite la comunicación inalámbrica 
+            con un Smartphone. Mediante la  aplicación app inventor descargada  en el Smartphone, el usuario puede enviar
+             comandos de movimiento al Arduino, como avanzar, retroceder, girar a la izquierda o girar a la derecha.</p>
+        <p>Cuando el sensor de ultrasonidos detecta un obstáculo a menos de 5 cm de distancia, activa el zumbador conectado
+             al Arduino. Cuanto más cerca esté el obstáculo, más rápido sonará el zumbador y se detendrá el vehículo,
+              proporcionando una retroalimentación audible al usuario sobre la proximidad del vehículo al obstáculo.</p>
+            </h3>
+            </div>  
+
+    </div>
+    <div class="footer">
+        <HR >
+        <h3><p >DERECHOS RESERVADOS: ROJAS COBACANGO GEOVANA ANDREA </p></h3>
+            
+
+            <h3><p>CURSO: 2 "B" INFORMATICAS </p></h3>
+
+        
+    </div>
+
+</div>
+
+           
+
+</body>
+</html>

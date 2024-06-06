@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PROGRAMA DE ARDUINO</title>
+    <style>
+        *{
+    padding: 5px;
+    margin: 5px;
+}
+body {
+            
+  background-image: url('imagen/fondo.JPG');
+  background-size: cover; /* Esto hace que la imagen de fondo cubra todo el área */
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+ 
+}
+.container{
+background-color: rgba(40, 212, 255, 0.527);
+width: 880px;
+margin-top: 0;
+margin-right: auto;
+margin-bottom: 0;
+margin-left: auto;
+border: 8px solid rgba(244, 242, 242, 0.961);
+text-align: center;
+border: 7px solid rgba(255, 249, 252, 0.562);
+border-radius: 20px;
+}
+
+.img {
+text-align: center;
+
+}
+.accordion {
+    margin: 10px;
+    background-color:  #007bff7b;
+    cursor: pointer;
+    padding: 18px;
+    width: 230px;
+    text-align: center;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+    border-radius: 6px;
+    border-bottom: 6px;
+
+   
+}
+.active, .accordion:hover {
+    
+    background-color: #27bcf7;
+}
+
+.pre{
+    color:#efff10;
+}
+
+    </style>
+    
+</head>
+<body>
+    <div class="container">
+        
+    
+
+    <pre align="left" class="pre">
+        //object detector
+        #define echoPin 6
+        #define trigPin 5
+        //object detector
+        long duration;
+        int distance;
+        int tiempo;
+        // Definir el número de pin del Motor
+        int MotorD1 = 13;
+        int MotorD2 = 12;
+        int MotorI1 = 11;
+        int MotorI2 = 10;
+        void setup() {
+        // Inicializar el pin del Motor como salida
+        pinMode (MotorD1, OUTPUT);
+        pinMode (MotorD2, OUTPUT);
+        pinMode (MotorI1, OUTPUT);
+        pinMode (MotorI2, OUTPUT);
+        tiempo=0;
+        // Iniciar comunicación serial a 9600 baudios 
+        Serial.begin(9600);
+        //object detector
+        pinMode (trigPin, OUTPUT); 
+        pinMode (echoPin , INPUT);
+        pinMode (9, OUTPUT);  //pin del zumbador 
+        Serial.begin (9600);
+        }
+
+         void loop() {
+         // Medición del sensor ultrasónico
+         digitalWrite (trigPin, LOW); // ponemos los dos pines  en LOW para inicializar el sensor
+         digitalWrite (echoPin, LOW);
+         delayMicroseconds (5); //Espera el tiempo especificado
+
+         digitalWrite (trigPin, HIGH);
+         delayMicroseconds (10);
+         digitalWrite (echoPin, LOW); 
+
+         duration = pulseIn (echoPin, HIGH); //ponemos HIGH  para que nos de el tiempo 
+                                       //transcurrido entre su anterior estado LOW
+         distance = (duration * 0.0344) / 2; // la distacia 
+ 
+         Serial.println("distance");
+         Serial.println(distance);
+         Serial.println ("ctms");
+         delay(100);
+         // zumbador 
+         if(distance <=20 ) {
+
+         digitalWrite(9, HIGH);
+         delay(50); //Con forme va acercando el vehiculo  va empesar a aumentar el sonido
+         digitalWrite(9, LOW);
+         digitalWrite(9, HIGH);
+         delay(50); //Con forme va acercando el vehiculo  va empesar a aumentar el sonido
+         digitalWrite(9, LOW);
+         digitalWrite(9, HIGH);
+         delay(50); //Con forme va acercando el vehiculo  va empesar a aumentar el sonido
+         digitalWrite(9, LOW);
+         digitalWrite(9, HIGH);
+         delay(50); //Con forme va acercando el vehiculo  va empesar a aumentar el sonido
+         digitalWrite(9, LOW);
+         digitalWrite(9, HIGH);
+         delay(50); //Con forme va acercando el vehiculo  va empesar a aumentar el sonido
+         digitalWrite(9, LOW);
+    
+         digitalWrite(MotorD1, LOW);  // Encender el Motor
+         digitalWrite(MotorD2, LOW);  // Encender el Motor
+         digitalWrite(MotorI1, LOW);  // Encender el Motor
+         digitalWrite(MotorI2, LOW);  // Encender el Motor
+         Serial.println("Detener");
+         }
+
+  
+        if (Serial.available() > 0) {
+         // Leer el primer byte recibido
+        char receivedChar = Serial.read();
+            // Mover adelante
+            if (receivedChar == 'a') {
+               digitalWrite(MotorD1, LOW);  // Encender el Motor
+               digitalWrite(MotorD2, HIGH);  // Encender el Motor
+               digitalWrite(MotorI1, LOW);  // Encender el Motor
+               digitalWrite(MotorI2, HIGH);  // Encender el Motor
+               Serial.println("adelante");
+             } 
+             // Mover atras
+             if (receivedChar == 'b') {
+               digitalWrite(MotorD1, HIGH);  // Encender el Motor
+               digitalWrite(MotorD2, LOW);  // Encender el Motor
+               digitalWrite(MotorI1, HIGH);  // Encender el Motor
+               digitalWrite(MotorI2, LOW);  // Encender el Motor
+               Serial.println("atras");
+             }
+             
+             if (receivedChar == 'c') {
+               digitalWrite(MotorD1, LOW);  // Encender el Motor
+               digitalWrite(MotorD2, LOW);  // Encender el Motor
+               digitalWrite(MotorI1, LOW);  // Encender el Motor
+               digitalWrite(MotorI2, LOW);  // Encender el Motor
+               Serial.println("Detener");
+               }
+             if (receivedChar == 'd') { 
+               digitalWrite (MotorD1, HIGH);
+               digitalWrite (MotorD2, LOW);
+               digitalWrite (MotorI1, LOW);
+               digitalWrite (MotorI2, HIGH);
+               // Agregar un pequeño retardo para que el robot gire
+               delay(1000);
+               Serial.println("");
+               }
+             if (receivedChar == 'e') { 
+               digitalWrite (MotorD1, LOW);
+               digitalWrite (MotorD2, HIGH);
+               digitalWrite (MotorI1, HIGH);
+               digitalWrite (MotorI2, LOW);
+               // Agregar un pequeño retardo para que el robot gire
+               delay(1000);
+               Serial.println("Izquierda");
+               
+               }
+           }
+         }
+         
+         
+
+   
+    </pre>   
+    
+    
+
+<button class="accordion"> <a href="PASOS.html">REGRESAR</button>
+    </div>
+</html>
